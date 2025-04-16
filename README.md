@@ -1,26 +1,33 @@
-# Ngrxdemo
+# NgRx in Angular 19 Standalone Components
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+This repository contains a demonstration of integrating NgRx into Angular 19 using standalone components. It provides a clear example of how to set up state management for Angular applications efficiently.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+NgRx is a powerful library for managing state in Angular applications. With Angular 19's standalone component architecture, you can simplify your application structure while maintaining robust state management. This repository showcases:
 
-## Code scaffolding
+- Setting up NgRx with standalone components.
+- Configuring the store, actions, reducers, features, selectors, and effects.
+- Implementing state management best practices in Angular.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
 
-## Build
+Before setting up the repository, ensure you have the following installed:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js (V ^18.19.1 or higher)
+- npm or yarn
+- Angular CLI (v19 or higher)
+- Basic knowledge of Angular and NgRx@19
 
-## Running unit tests
+## Setup Instructions
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/GRDtechlab/NgRx.git
+   cd NgRx
+   npm install
+   ng serve
+   ```
 
 ## Further help
 
