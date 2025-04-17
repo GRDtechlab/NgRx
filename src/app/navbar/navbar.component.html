@@ -1,0 +1,57 @@
+<nav
+  class="bg-white border-gray-200 dark:bg-gray-900 shadow-lg border-b sticky top-0 w-full z-50"
+>
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
+    <!-- Branding Section -->
+    <h1 class="text-2xl font-bold underline">Ngrx Store</h1>
+    <div class="flex items-center gap-2">
+      <p
+        class="md:hidden text-blue-500 w-fit bg-blue-100 font-bold p-2 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800 cursor-pointer"
+      >
+        Cart {{ cart() }}
+      </p>
+      <!-- Hamburger Menu for Mobile -->
+      <div class="md:hidden">
+        <button
+          class="cursor-pointer text-gray-900 hover:text-blue-500 focus:outline-none"
+          (click)="toggleMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Desktop Navigation links appear -->
+    <!-- hidden used for mobile responsive.. Hides <768 screen size. -->
+    <div class="hidden md:flex items-center gap-2">
+      <p
+        class="text-blue-500 bg-blue-100 font-bold p-2 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800 cursor-pointer"
+      >
+        Cart {{ cart() }}
+      </p>
+      <app-auth />
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    class="md:hidden mt-2 space-y-2 flex items-center gap-2 justify-end p-4"
+    [ngClass]="{ block: isMenuOpen, hidden: !isMenuOpen }"
+  >
+    <app-auth />
+  </div>
+</nav>
