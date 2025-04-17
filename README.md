@@ -17,7 +17,7 @@ Before setting up the repository, ensure you have the following installed:
 - Node.js (V ^18.19.1 or higher)
 - npm or yarn
 - Angular CLI (v19 or higher)
-- Basic knowledge of Angular and NgRx@19
+- Basic knowledge of Angular, Signals, and NgRx@19
 
 ## Setup Instructions
 
@@ -30,5 +30,9 @@ Before setting up the repository, ensure you have the following installed:
    ```
 
 ## Further help
+
+-- Official [Install Tailwind CSS with Angular](https://tailwindcss.com/docs/installation/framework-guides/angular) guide
+
+-- Official [Install of NgRx Store](https://ngrx.io/guide/store/install), and [Install of NgRx effect](https://ngrx.io/guide/effects/install)
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

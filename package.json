@@ -2,6 +2,25 @@
   "name": "ngrxdemo",
   "version": "0.0.1",
   "author": "Gaurang Dhorda",
+  "description": "This is the demo project showcasing the usage of NgRx@19 store and tailwindCss@4.0 inside Angular 19.2 project.",
+  "keywords": [
+    "Angular",
+    "NgRx",
+    "tailwindCss",
+    "typescript"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/GRDtechlab/NgRx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GRDtechlab/NgRx.git"
+  },
+  "contributors": [
+    {
+      "name": "Gaurang Dhorda",
+      "email": "grdtechlab@gmail.com"
+    }
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,12 +38,17 @@
     "@angular/platform-browser": "^19.2.6",
     "@angular/platform-browser-dynamic": "^19.2.6",
     "@angular/router": "^19.2.6",
+    "@ngrx/effects": "^19.1.0",
+    "@ngrx/store": "^19.1.0",
+    "@tailwindcss/postcss": "^4.1.4",
+    "postcss": "^8.5.3",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.1.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.7",
+    "@angular-devkit/build-angular": "^19.2.8",
     "@angular/cli": "^19.2.7",
     "@angular/compiler-cli": "^19.2.6",
     "@types/jasmine": "~5.1.0",
