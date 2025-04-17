@@ -7,6 +7,8 @@ import { provideEffects } from '@ngrx/effects';
 import { authReducer } from './store/auth.reducer';
 import { provideHttpClient } from '@angular/common/http';
 import { ProductsFeature } from './store/products.features';
+import { ProductEffects } from './store/products.effects';
+import { cartFeature } from './store/cart.features';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore({ auth: authReducer }),
     provideState(ProductsFeature),
-    provideEffects(),
+    provideState(cartFeature),
+    provideEffects(ProductEffects),
   ],
 };

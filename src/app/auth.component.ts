@@ -1,21 +1,20 @@
 import { Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Store } from '@ngrx/store';
-import { login_action, logout_action } from './store/auth.reducer';
+import { AuthService } from './auth.service';
+
 @Component({
   selector: 'app-auth',
   template: `
     <div class="action">
       @if(!isLoggedIn()){
       <button
-        class="block py-2 px-3 text-white bg-blue-700 rounded-sm dark:text-white md:dark:text-blue-500"
+        class="block py-2 px-3 text-white bg-blue-700 hover:bg-blue-500 cursor-pointer rounded-sm dark:text-white md:dark:text-blue-500"
         (click)="login()"
       >
         Login
       </button>
       }@else{
       <button
-        class="block py-2 px-3 text-white bg-red-700 rounded-sm dark:text-white md:dark:text-red-500"
+        class="block py-2 px-3 text-white bg-red-700 hover:bg-red-500 cursor-pointer rounded-sm dark:text-white md:dark:text-red-500"
         (click)="logout()"
       >
         Logout
@@ -27,16 +26,14 @@ import { login_action, logout_action } from './store/auth.reducer';
   standalone: true,
 })
 export class AuthComponent {
-  store = inject(Store);
-  isLoggedIn$ = this.store.select((state) => state.auth.isLoggedIn);
-  isLoggedIn = toSignal(this.isLoggedIn$);
+  auth = inject(AuthService);
+  isLoggedIn$ = this.auth.isLoggedIn$;
+  isLoggedIn = this.auth.isLoggedIn;
 
   login() {
-    // here parameter are defined in 'login-action' using props()..
-    // see auth.reducer.ts file.
-    this.store.dispatch(login_action({ userName: 'GRD', password: 'GRD' }));
+    this.auth.loginDispatch();
   }
   logout() {
-    this.store.dispatch(logout_action());
+    this.auth.logoutDispatch();
   }
 }
