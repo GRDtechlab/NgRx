@@ -1,5 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { AuthService } from './auth.service';
+import { ToastService } from './custom-toast/toast.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -27,8 +29,19 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent {
   auth = inject(AuthService);
+  toast = inject(ToastService);
+  router = inject(Router);
   isLoggedIn$ = this.auth.isLoggedIn$;
   isLoggedIn = this.auth.isLoggedIn;
+
+  // Side effects called when logout action completes.
+  // see auth.reducer.ts file logout_complete createEffect is runs when logout action dispatched completes.
+  logout_clear = effect(() => {
+    if (this.auth.logout_complete()) {
+      this.router.navigateByUrl('/');
+      this.toast.showToast('logout successfully.');
+    }
+  });
 
   login() {
     this.auth.loginDispatch();

@@ -2,6 +2,9 @@
   <h1 class="text-2xl font-bold text-center mb-5">Product List</h1>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     @for(product of products(); track product.id){
-    <app-product [product]="product" (addToCartEvent)="addToCart($event)" /> }
+    <app-product [product]="product" (addToCartEvent)="addToCart($event)" />
+    }@empty {
+    <p class="font-bold text-xl text-blue-500">Product is being loading...</p>
+    }
   </div>
 </div>
