@@ -1,19 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-import {
-  loadProducts,
-  selectLoading,
-  selectProducts,
-} from '../store/products.features';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { ProductComponent } from '../product/product.component';
 import { ProductsService } from '../products.service';
 import { ICart } from '../store/cart.features';
 import { CartService } from '../cart.service';
+import { FilterComponent } from '../filter/filter.component';
 
 @Component({
   selector: 'app-products-list',
-  imports: [ProductComponent],
+  imports: [ProductComponent, FilterComponent],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css',
   standalone: true,

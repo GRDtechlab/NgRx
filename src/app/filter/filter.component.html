@@ -1,0 +1,80 @@
+<!-- Filter Button for Mobile -->
+<button
+  class="md:hidden fixed mt-1.5 left-4 z-50 flex items-center justify-center bg-indigo-600 text-white px-4 py-2 rounded shadow-md"
+  [ngClass]="{ hidden: isFilterSidebarOpen }"
+  (click)="toggleFilterSidebar()"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-5 w-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L14 12v6a1 1 0 01-.447.894l-4 2A1 1 0 019 19v-7L3.293 6.707A1 1 0 013 6V4z"
+    />
+  </svg>
+</button>
+
+<!-- Backdrop -->
+<div
+  [ngClass]="{
+    'fixed inset-0 bg-black opacity-50 z-30': isFilterSidebarOpen,
+    hidden: !isFilterSidebarOpen
+  }"
+  (click)="toggleFilterSidebar()"
+  class="transition-opacity duration-300"
+></div>
+
+<aside
+  [ngClass]="{
+    'fixed top-0 left-0 z-40 h-full w-64 bg-white shadow-lg transform transition-transform duration-300': true,
+    hidden: !isFilterSidebarOpen,
+    'md:block md:relative md:translate-x-0  md:shadow-none': true
+  }"
+  class="md:relative absolute top-18 md:top-0"
+>
+  <div class="p-4 h-full w-64">
+    <!-- Close Button -->
+    <button
+      class="absolute top-1.5 right-0 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors"
+      [ngClass]="{ hidden: !isFilterSidebarOpen }"
+      (click)="toggleFilterSidebar()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+    <h2 class="text-lg font-bold mb-4">Filters</h2>
+    <ul class="space-y-2">
+      <li>
+        <label class="block text-sm">
+          <input type="checkbox" class="form-checkbox text-indigo-600" />
+          Category 1
+        </label>
+      </li>
+      <li>
+        <label class="block text-sm">
+          <input type="checkbox" class="form-checkbox text-indigo-600" />
+          Category 2
+        </label>
+      </li>
+      <!-- Add more filters here -->
+    </ul>
+  </div>
+</aside>

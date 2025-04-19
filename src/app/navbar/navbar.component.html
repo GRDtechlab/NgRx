@@ -1,62 +1,100 @@
 <nav
-  class="bg-white border-gray-200 dark:bg-gray-900 shadow-lg border-b sticky top-0 w-full z-50"
+  class="bg-gray-100 border-b-amber-950 shadow-md sticky top-0 w-full z-50 dark:bg-gray-900 dark:border-gray-700"
 >
-  <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
-  >
+  <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
     <!-- Branding Section -->
     <h1
-      class="text-2xl font-bold underline cursor-pointer hover:text-gray-700"
+      class="text-3xl font-extrabold cursor-pointer hover:text-blue-600 dark:hover:text-blue-400"
       routerLink="/"
     >
       Ngrx Store
     </h1>
-    <div class="flex items-center gap-2">
-      <p
-        class="md:hidden text-blue-500 w-fit bg-blue-100 font-bold p-2 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800 cursor-pointer"
+
+    <!-- Desktop Navigation Links -->
+    <div class="hidden md:flex items-center gap-6">
+      <!-- Cart Link -->
+      <div
+        class="relative px-2.5 flex items-center cursor-pointer text-gray-800 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
       >
-        Cart {{ cart() }}
-      </p>
-      <!-- Hamburger Menu for Mobile -->
-      <div class="md:hidden">
-        <button
-          class="cursor-pointer text-gray-900 hover:text-blue-500 focus:outline-none"
-          (click)="toggleMenu()"
+        <!-- Cart Icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 3h2l.341 1.366a3 3 0 003 2.634h8.655a3 3 0 003-2.634L19 3h2"
+          />
+          <circle cx="9" cy="20" r="2" />
+          <circle cx="15" cy="20" r="2" />
+        </svg>
+
+        <!-- Badge -->
+        <span
+          class="absolute top-0 right-0 bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded-lg whitespace-nowrap"
+        >
+          {{ cart() }}
+        </span>
       </div>
+
+      <!-- Auth Section -->
+      <app-auth></app-auth>
     </div>
-    <!-- Desktop Navigation links appear -->
-    <!-- hidden used for mobile responsive.. Hides <768 screen size. -->
-    <div class="hidden md:flex items-center gap-2">
-      <p
-        class="text-blue-500 bg-blue-100 font-bold p-2 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800 cursor-pointer"
+
+    <!-- Hamburger Menu for Mobile -->
+    <button
+      class="md:hidden cursor-pointer text-gray-800 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none"
+      (click)="toggleMenu()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
       >
-        Cart {{ cart() }}
-      </p>
-      <app-auth />
-    </div>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Navigation Menu -->
   <div
-    class="md:hidden mt-2 space-y-2 flex items-center gap-2 justify-end p-4"
+    class="md:hidden mt-4 space-y-2 p-4 bg-gray-100 dark:bg-gray-900"
     [ngClass]="{ block: isMenuOpen, hidden: !isMenuOpen }"
   >
-    <app-auth />
+    <div
+      class="flex items-center cursor-pointer text-gray-800 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+      routerLink="/cart"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 mr-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 3h2l.341 1.366a3 3 0 003 2.634h8.655a3 3 0 003-2.634L19 3h2"
+        />
+        <circle cx="9" cy="20" r="2" />
+        <circle cx="15" cy="20" r="2" />
+      </svg>
+      <span>Cart ({{ cart() }})</span>
+    </div>
+    <app-auth></app-auth>
   </div>
 </nav>
