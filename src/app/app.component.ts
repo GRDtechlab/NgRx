@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './auth.service';
 import { CartService } from './cart.service';
-import { LandingComponent } from './landing/landing.component';
 import { CustomToastComponent } from './custom-toast/custom-toast.component';
 
 @Component({

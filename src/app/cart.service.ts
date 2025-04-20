@@ -5,6 +5,7 @@ import {
   addToCart_action,
   ICart,
   selectCartItems,
+  selectTotalAmount,
 } from './store/cart.features';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -13,10 +14,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class CartService {
   private store = inject(Store);
-  private cart$ = this.store
-    .select(selectCartItems)
-    .pipe(map((cart) => cart.length));
-  cart = toSignal(this.cart$, { initialValue: 0 });
+  private cart$ = this.store.select(selectCartItems);
+  cart = toSignal(this.cart$, { initialValue: [] });
+
+  private totalAmount$ = this.store
+    .select(selectTotalAmount)
+    .pipe(map((totalAmount) => Math.round(totalAmount)));
+  totalAmount = toSignal(this.totalAmount$, { initialValue: 0 });
 
   addToCartDispatcher(cartProduct: ICart) {
     this.store.dispatch(addToCart_action({ product: { ...cartProduct } }));

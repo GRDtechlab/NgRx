@@ -1,10 +1,13 @@
-<app-navbar [cart]="cart()" />
-
-<router-outlet />
-<app-custom-toast />
-<!-- Footer -->
-<footer class="bg-gray-800 text-white py-6">
-  <div class="container mx-auto text-center">
-    <p>&copy; 2025 NgRx Store. All rights reserved.</p>
+<div class="flex flex-col min-h-screen">
+  <div class="flex-1">
+    <app-navbar [cart]="cart().length" />
+    <router-outlet />
+    <app-custom-toast />
   </div>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 NgRx Store. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
