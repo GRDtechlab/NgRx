@@ -1,0 +1,16 @@
+/* Hide scrollbars */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navigation Dots */
+button.w-3.h-3 {
+  transition: background-color 0.3s ease;
+}
+button.w-3.h-3:hover {
+  background-color: #3b82f6; /* Tailwind Blue-600 */
+}
